@@ -1,1 +1,2 @@
-# Book_recommendation_deployment
+# Book-Recommendation-System
+This is a collaborative filtering Book Recommendation System. 
