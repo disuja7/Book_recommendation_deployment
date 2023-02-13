@@ -9,15 +9,22 @@
     </head>
     <body style="background-color: dimgray;">
         <nav class="navbar" style="background-color: #60eecd;">
-            <p class="navbar-brand">My Book Recommender</p>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/recommend">Recommend</a></li>
+            <p class="navbar-brand" style="font-size: 45px; margin-top: 30px;">My Book Recommender</p>
+            <p style="text-align: end; margin-top: 10px; margin-right: 20px;">Created By - Deeshu kr. Pandit and Ashutosh Sharma</p>
+            <ul style="display: flex;">
+                <li style="padding: 20px;"><a href="/">Home</a></li>
+                <li style="padding: 20px;"><a href="/recommend">Recommend</a></li>
             </ul>
         </nav>
     <style>
         .text-white{
             color: wheat;
+        }
+    </style>
+
+    <style>
+        .text-red{
+            color: rgb(100, 248, 204);
         }
     </style>
 
@@ -30,9 +37,26 @@
                     <input type="submit" class="btn btn-lg btn-warning">
                 </form>
             </div>
+
+
             {% if data %}
-             {% for i in data %}
-              <div class="col-md-2" style="margin-top: 20px;">
+             <div class="col-md-12" style="margin-top: 20px;">
+               <div class="card">
+                   <div class="card-body">
+                       <h4 class="text-red">Searched Book</h4>
+                       <img class="card-img-top" src="{{data[0][0][2]}}">
+                       <h4 class="text-white">{{data[0][0][0]}}</h4>
+                       <p class="text-white">{{data[0][0][1]}}</p><br>
+                   </div>
+               </div>
+             </div>
+           {% endif %}
+
+
+            {% if data %}
+             <h4 class="text-red" style="margin-top: 50px;">Recommended Books</h4>
+             {% for i in data[1] %}
+              <div class="col-md-2" style="margin-top: 50px;">
                 <div class="card">
                     <div class="card-body">
                         <img class="card-img-top" src="{{i[2]}}">
@@ -42,6 +66,16 @@
                 </div>
               </div>
              {% endfor %}
+            {% endif %}
+
+            {%if data==[] %}
+                <div class="col-md-12" style="margin-top: 20px;">
+                    <div class="card" style="margin-top: 20px;">
+                        <div class="card-body">
+                            <h4 class="text-white">Opps! No book found related to your search. Try for another.</h4>
+                        </div>
+                    </div>
+                </div>
             {% endif %}
             
         </div>
