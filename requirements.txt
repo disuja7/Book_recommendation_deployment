@@ -7,3 +7,4 @@ scikit-learn
 sklearn
 scipy
 gunicorn
+nltk
