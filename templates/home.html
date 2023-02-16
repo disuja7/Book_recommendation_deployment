@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html lang="='en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Book Recommender System</title>
-        <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    
-    <body style="background-color: dimgray;">
-        <nav class="navbar" style="background-color: #60eecd; " >
-            <p class="navbar-brand" style="font-size: 45px; margin-top: 30px;">My Book Recommender</p>
-            <p style="text-align: end; margin-top: 10px; margin-right: 20px;">Created By - Deeshu kr. Pandit and Ashutosh Sharma</p>
-            <ul style="display: flex;">
-                <li style="padding: 20px;"><a href="/">Home</a></li>
-                <li style="padding: 20px;"><a href="/recommend">Recommend</a></li>
+</head>
+
+
+<body style="background-color: dimgray;">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Book Recommender</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/recommend">Recommend</a></li>
             </ul>
-        </nav>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Created By - Deeshu kr. Pandit</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <style>
-        .text-white{
+        .text-white {
             color: wheat;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 10px 0px 10px;
+            display: flex;
+            background-color: #4c5053;
+            height: 385px;
+        }
+
+        .details-card {
+            width: 200px;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-card {
+            width: 200px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 250px;
         }
     </style>
 
@@ -32,20 +76,26 @@
             {% for i in range(book_name|length) %}
             <div class="col-md-3" style="margin-top: 20px;">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="image-card">
                         <img class="card-img-top" src="{{image[i]}}">
-                        <h4 class="text-white">{{book_name[i]}}</h4>
-                        <p class="text-white">{{author[i]}}</p>
-                        <p class="text-white">Votes- {{votes[i]}}</p>
-                        <p class="text-white">Rating- {{rating[i]}}</p>
                     </div>
+                    <div class="details-card">
+                        <h5 class="text-white">{{book_name[i]}}</h5>
+                            <h6 class="text-white">{{author[i]}}</h6>
+                            <div style="display: flex;">
+                                <p class="text-white">Rating- {{rating[i]}}</p>
+                                <p class="text-white">({{votes[i]}})</p>
+                            </div>
+                    </div>
+
                 </div>
             </div>
             {% endfor %}
-            
+
         </div>
     </div>
 
-        
-    </body>
+
+</body>
+
 </html>

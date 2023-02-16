@@ -3,6 +3,7 @@ matplotlib
 numpy
 pandas
 seaborn
+scikit-learn
 sklearn
 scipy
 gunicorn
